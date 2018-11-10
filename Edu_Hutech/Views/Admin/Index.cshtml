@@ -1,0 +1,90 @@
+﻿<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link href="~/Content/css/admintable.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="listclass">
+        <label for="list">Nhập tên lớp:</label>
+        <input id="list" list="Lop" onfocus="this.value=''">
+        <!-- onfocus ="this.value=' ' ==> có nghĩa là xóa hết ký tự khi focus vào ô input" -->
+        <datalist id="Lop">
+            <option value="15DTH10">
+            <option value="15DTH11">
+            <option value="15DTH12">
+            <option value="15DTH13">
+            <option value="15DTH14">
+        </datalist>
+        <div class="tab">
+            <button class="tabclick" onclick="OPtable(event,'DS')"> Danh sách sinh viên </button>
+            <button class="tabclick" onclick="OPtable(event,'MC')"> Minh chứng lớp học tiên tiến </button>
+        </div>
+        <figcaption>Nhấp vào tên sinh viên hoặc minh chứng để xem chi tiết.</figcaption>
+    </div>
+
+    <div class="detail-list">
+
+        <ol id="DS" class="tab-table">
+
+            <li><a href="#">AAAAAAAAAAAA</a></li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+            <li>AAAAAAAAAAAA</li>
+        </ol>
+        <ol id="MC" class="tab-table">
+            <li><a href="#">MMMMMMMMMMMMMMMM</p></a></li>
+    </div>
+    </div>
+
+</body>
+</html>
+<script>
+function OPtable(evt, tbname) {
+    var i, tabtable, tabclicks;
+    tabtable = document.getElementsByClassName("tab-table");
+    for (i = 0; i < tabtable.length; i++) {
+        tabtable[i].style.display = "none";
+    }
+    tabclicks = document.getElementsByClassName("tabclick");
+    for (i = 0; i < tabclicks.length; i++) {
+        tabclicks[i].className = tabclicks[i].className.replace(" active", "");
+    }
+    document.getElementById(tbname).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>

@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "DanhsachDK";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+@model IEnumerable<Edu_Hutech.Models.Lop>
+<div class="input-group">
+    <select id="lop">
+        @foreach (var item in Model)
+        {
+            <option value="@item.MaLop">@item.MaLop</option>
+        }
+    </select>
+    <select id="macap">
+        <option value="K">Khoa</option>
+        <option value="TR">Trường</option>
+        <option value="TH">Thành</option>
+        <option value="TW">Trung Ương</option>
+    </select>
+    <a href="#" onclick="load_ds()">></a>
+</div>
+<div id="ds_dk_sv5t"></div>
+<script>
+    function load_ds() {
+        var malop = $('#lop').val();
+        var macap = $('#macap').val();
+        alert(malop + " "+ macap)
+        $.ajax({
+            type: "get",
+            url: '@Url.Action("ds_sv_dk", "SV5T_Khoa_Phong")',
+            data: {
+                lop: malop,
+                cap: macap
+            },
+            success: function (a) {
+                $('#ds_dk_sv5t').html(a);
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert(errorThrown)
+            },
+        });
+    }
+</script>
+
+
